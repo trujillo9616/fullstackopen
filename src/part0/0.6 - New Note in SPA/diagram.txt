@@ -1,0 +1,16 @@
+title New Note SPA Process Diagram
+
+browser->server: HTTP POST http://studies.cs.helsinki.fi/exampleapp/new-note-spa \n Payload: { content: string, date: Date }
+server-->browser: Status 200 Response
+
+note over browser:
+the process ends here, the js-code is responsible
+for re-rendering the page again with the updated
+data, no new requests are made for redirection 
+to the server, possibly another GET request could be
+made if using a database to fetch the updated
+data
+end note
+
+browser->server: ? HTTP GET http://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "updated content", date: "2023-01-03" }, ...]
