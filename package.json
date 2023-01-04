@@ -1,0 +1,27 @@
+{
+  "name": "fullstackopen",
+  "version": "1.0.0",
+  "description": "Repository containing my source code for the Full Stack Open course of the University of Helsinki.",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-trujillo9616:trujillo9616/fullstackopen.git"
+  },
+  "author": "Adrian Trujillo Duron",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "eslint": "^8.31.0",
+    "eslint-plugin-react": "^7.31.11",
+    "husky": "^8.0.3",
+    "jest": "^29.3.1",
+    "lint-staged": "^13.1.0"
+  }
+}
