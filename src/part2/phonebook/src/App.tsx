@@ -46,7 +46,7 @@ function App() {
     }, 3000);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const person = {
       name: newName,
@@ -76,7 +76,8 @@ function App() {
         return;
       }
     }
-    phonebookService.create(person).then((returnedPerson) => {
+    try {
+      await phonebookService.create(person);
       refetchPersons();
       setNewName("");
       setNewNumber("");
@@ -85,8 +86,14 @@ function App() {
         message: `Added ${person.name}`,
         type: "success",
       });
+    } catch (error: any) {
+      setNotification({
+        message: error.response.data.error,
+        type: "error",
+      });
       resetNotification();
-    });
+      return;
+    }
   };
 
   const personsToShow = persons.filter((person) => {
