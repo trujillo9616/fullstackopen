@@ -3,7 +3,7 @@ import express, { Request } from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
-import { postsRouter, usersRouter, loginRouter } from './controllers';
+import { postsRouter, usersRouter, loginRouter, testingRouter } from './controllers';
 
 import middleware from './utils/middleware';
 import logger from './utils/logger';
@@ -34,6 +34,11 @@ app.use(middleware.tokenExtractor);
 app.use('/api/login', loginRouter);
 app.use('/api/posts', postsRouter);
 app.use('/api/users', usersRouter);
+
+console.log('NODE_ENV:', process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'test') {
+  app.use('/api/testing', testingRouter);
+}
 
 // Add error handler
 app.use(middleware.unknownEndpoint);
