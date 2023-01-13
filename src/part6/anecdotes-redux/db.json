@@ -1,0 +1,9 @@
+{
+  "anecdotes": [
+    {
+      "content": "Testing adding another Anecdote",
+      "votes": 2,
+      "id": 1
+    }
+  ]
+}
